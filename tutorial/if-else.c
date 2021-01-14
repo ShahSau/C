@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int max();
+int max(int num1, int num2, int num3);
 int main()
 {
     printf("%d",max(10,80,50));

@@ -1,16 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+double calc(double num1, double num2, char cha);
 int main()
 {
-    double x;
-    double y;
-    printf("enter a number: ");
-    scanf("%lf",&x);
-    printf("enter another number: ");
-    scanf("%lf",&y);
-    printf("the result is %lf", x+y);
-
+    
+    printf("%f",calc(4,8,'+'));
 
     return 0;
+}
+
+double calc(double num1, double num2, char cha){
+    double result;
+    if(cha == '+'){
+        result= num1 + num2;
+    }else if(cha == '-'){
+        result= num1 - num2;
+    }else if(cha == '*'){
+        result= num1 * num2;
+    }else{
+        result= num1 / num2;
+    }
+
+    return result;
 }
