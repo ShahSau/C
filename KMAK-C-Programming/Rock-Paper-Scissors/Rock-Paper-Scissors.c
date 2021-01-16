@@ -6,8 +6,8 @@
 int main()
 {
     /* creating variables*/
-    int wins =0;
-    int computerWins=0;
+    int wins = 0;
+    int computerWins = 0;
     int computersChoice;
     int rounds;
     char userChoiceAsChar;
@@ -22,25 +22,6 @@ int main()
 
     for (int i = 0; i < rounds; i++)
     {
-        /* creating random variables*/
-        srand(time(0));
-
-        computersChoice = rand() % 3 + 1;
-        /*printf("Computer has choosen: %d\n: ", computersChoice);*/
-
-        /* Printing the value of computersChoice as text to the screen*/
-        if (computersChoice == 1)
-        {
-            printf("Computer choose Rock\n");
-        }
-        else if (computersChoice == 2)
-        {
-            printf("Computer choose Paper\n");
-        }
-        else
-        {
-            printf("Computer choose Sissors\n");
-        }
 
         /* Asking input from the user*/
         do
@@ -73,6 +54,27 @@ int main()
         {
             userChoiceAsInt = 3;
         }
+
+        /* creating random variables*/
+        srand(time(0));
+
+        computersChoice = rand() % 3 + 1;
+        /*printf("Computer has choosen: %d\n: ", computersChoice);*/
+
+        /* Printing the value of computersChoice as text to the screen*/
+        if (computersChoice == 1)
+        {
+            printf("Computer choose Rock\n");
+        }
+        else if (computersChoice == 2)
+        {
+            printf("Computer choose Paper\n");
+        }
+        else
+        {
+            printf("Computer choose Sissors\n");
+        }
+
         if (userChoiceAsInt < computersChoice)
         {
             computerWins++;
