@@ -6,51 +6,89 @@
 int main()
 {
     /* creating variables*/
-    int wins;
-    int computerWins;
+    int wins =0;
+    int computerWins=0;
     int computersChoice;
     int rounds;
     char userChoiceAsChar;
     int userChoiceAsInt;
+    int result;
 
     /* Printing welcome messgae*/
     printf("Welcome to Rock-Paper-Scissors game!\n");
 
-    /* creating random variables*/
-    srand(time(0));
+    printf("How many founds you want to play? :\n");
+    scanf("%i", &rounds);
 
-    computersChoice = rand() % 3 + 1;
-    /*printf("Computer has choosen: %d\n: ", computersChoice);*/
-
-    /* Printing the value of computersChoice as text to the screen*/
-    if (computersChoice == 1)
+    for (int i = 0; i < rounds; i++)
     {
-        printf("Computer choose Rock\n");
-    }
-    else if (computersChoice == 2)
-    {
-        printf("Computer choose Paper\n");
-    }
-    else
-    {
-        printf("Computer choose Sissors\n");
-    }
+        /* creating random variables*/
+        srand(time(0));
 
-    /* Asking input from the user*/
-    printf("(R)ock, (P)aper or (S)cissors?\n");
-    scanf(" %c",&userChoiceAsChar);
-    /*printf("%c\n", userChoiceAsChar);*/
+        computersChoice = rand() % 3 + 1;
+        /*printf("Computer has choosen: %d\n: ", computersChoice);*/
 
-    /*Converting user choice into integer*/
-    if(userChoiceAsChar == 'R' || userChoiceAsChar == 'r'){
-        userChoiceAsInt =1;
-    }else if(userChoiceAsChar == 'P' || userChoiceAsChar == 'p'){
-        userChoiceAsInt =2;
-    }else {
-        userChoiceAsInt =3;
+        /* Printing the value of computersChoice as text to the screen*/
+        if (computersChoice == 1)
+        {
+            printf("Computer choose Rock\n");
+        }
+        else if (computersChoice == 2)
+        {
+            printf("Computer choose Paper\n");
+        }
+        else
+        {
+            printf("Computer choose Sissors\n");
+        }
+
+        /* Asking input from the user*/
+        do
+        {
+            printf("(R)ock, (P)aper or (S)cissors?\n");
+            scanf(" %c", &userChoiceAsChar);
+            if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r' || userChoiceAsChar == 'P' || userChoiceAsChar == 'p' || userChoiceAsChar == 'S' || userChoiceAsChar == 's')
+            {
+                break;
+            }
+            else
+            {
+                continue;
+            }
+
+        } while (1);
+
+        /*printf("%c\n", userChoiceAsChar);*/
+
+        /*Converting user choice into integer*/
+        if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r')
+        {
+            userChoiceAsInt = 1;
+        }
+        else if (userChoiceAsChar == 'P' || userChoiceAsChar == 'p')
+        {
+            userChoiceAsInt = 2;
+        }
+        else
+        {
+            userChoiceAsInt = 3;
+        }
+        if (userChoiceAsInt < computersChoice)
+        {
+            computerWins++;
+            printf("Player won!!\n");
+        }
+        else if (userChoiceAsInt > computersChoice)
+        {
+            wins++;
+            printf("Computer won!!\n");
+        }
+        else
+        {
+            printf("It's a tie!!\n");
+        }
     }
-
-    printf("%c\n", userChoiceAsChar);
-    printf("%i\n", userChoiceAsInt);
+    printf("Number of times computer wins: %i\n", computerWins);
+    printf("Number of times player wins: %i\n", wins);
     return 0;
 }
