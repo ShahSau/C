@@ -1,17 +1,19 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
  
 int main()
 {
-   int i1 = 5;
-   int i2 = 0;
-   do
+   char name1[10]= "Tim";
+   char name2[10]= "Bill";
+   if(strcmp(name1, name2) < 0)
    {
-       i1--;
-       i2++;
-   }while( i2 < 5);
-
-   printf("%d , %d \n", i1,i2);
+      printf("A");
+   }else if(strcmp(name1, name2) > 0){
+      printf("B");
+   }else{
+      printf("C");
+   }
    return 0;
 }
