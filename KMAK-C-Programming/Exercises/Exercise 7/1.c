@@ -9,11 +9,11 @@ int main()
     char first[50];
     char second[50];
     printf("Enter a name: ");
-    scanf("%s", &first);
+    scanf("%s", first);
     printf("Enter aother name: ");
-    scanf("%s", &second);
-    int result = strcmp(first, second);
-    if (result == -1)
+    scanf("%s", second);
+    int result = strcmp( first, second);
+   if (result < 0)
     {
         printf("%s %s", first, second);
     }
