@@ -11,13 +11,17 @@ int main()
 {
     /* creating variables*/
     int rounds;
-    int result;
+    /* int result;*/ 
+    int player_wins=0;
+    int number_tie=0;
+    int computer_wins =0;
 
     /* Printing welcome messgae*/
     printf("Welcome to Rock-Paper-Scissors game!\n");
 
     printf("How many founds you want to play? :\n");
     scanf("%i", &rounds);
+    int winner =0;
 
     for (int i = 0; i < rounds; i++)
     {
@@ -25,9 +29,21 @@ int main()
         int player = ask();
         int computer = generate();
 
-        int winner = checkWin(player, computer);
+        winner = checkWin(player, computer);
+        if(winner == 1){
+            player_wins++;
+        }else if(winner ==-1){
+            computer_wins++;
+        }else{
+            number_tie++;
+        }
+
         printResult(winner, computer);
     }
+    printf(".. the game ends ..\n");
+    printf("Player won %i/%i times\n", player_wins, rounds);
+    printf("Computer won %i/%i times\n", computer_wins, rounds);
+    printf("Number of ties: %i\n", number_tie);
 
     return 0;
 }
