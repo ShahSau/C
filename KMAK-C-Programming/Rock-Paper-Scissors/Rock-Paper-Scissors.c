@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-//Function prototypes of all the function
+//Function prototypes of all the functions
 int ask();
 int generate();
 int checkWin(int userChoiceAsInt, int computersChoice);
@@ -33,7 +33,9 @@ int main()
         //storing computer's random value as computer
         int computer = generate();
 
+//checking who is the winner
         winner = checkWin(player, computer);
+//couting up the number of wins for player or computer or number of tie after each round
         if (winner == 1)
         {
             player_wins++;
@@ -47,8 +49,12 @@ int main()
             number_tie++;
         }
 
+//printing out the result of a single round
+
         printResult(winner, computer);
     }
+
+//printing the final result of all the rounds
     printf("\n.. the game ends ..\n");
     printf("Player won %i/%i times\n", player_wins, rounds);
     printf("Computer won %i/%i times\n", computer_wins, rounds);
@@ -69,11 +75,12 @@ int ask()
     {
         printf("(R)ock, (P)aper or (S)cissors?\n");
         scanf(" %c", &userChoiceAsChar);
-
+//Checking for a valid input
         if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r' || userChoiceAsChar == 'P' || userChoiceAsChar == 'p' || userChoiceAsChar == 'S' || userChoiceAsChar == 's')
         {
             break;
         }
+        //if valid input not found ask again
         else
         {
             continue;
@@ -81,7 +88,7 @@ int ask()
 
     } while (1);
 
-    //Converting user choice into integer
+    //Converting user choice into an integer
     if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r')
     {
         userChoiceAsInt = 1;
@@ -96,21 +103,21 @@ int ask()
     }
     return userChoiceAsInt;
 }
-
+// int generate() generate computer's choice
 int generate()
 {
     int computersChoice = 0;
 
-    //creating random variables
+    //creating random variables between 1 to 3 and storing as computer's choice
     srand(time(0));
 
     computersChoice = rand() % 3 + 1;
-    //printf("Computer has choosen: %d\n: ", computersChoice);
 
-    // Printing the value of computersChoice as text to the screen
+
     return computersChoice;
 }
 
+// int checkwin() 
 int checkWin(int userChoiceAsInt, int computersChoice)
 {
     int wins;
@@ -132,6 +139,7 @@ int checkWin(int userChoiceAsInt, int computersChoice)
 
 void printResult(int wins, int computersChoice)
 {
+    // Printing the value of computersChoice as text to the screen
     if (computersChoice == 1)
     {
         printf("Computer choose Rock\n");
