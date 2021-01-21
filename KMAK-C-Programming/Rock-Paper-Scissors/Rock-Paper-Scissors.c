@@ -19,7 +19,7 @@ int main()
     /* Printing welcome messgae*/
     printf("Welcome to Rock-Paper-Scissors game!\n");
 
-    printf("How many founds you want to play? :\n");
+    printf("How many rounds you want to play? :\n");
     scanf("%i", &rounds);
     int winner =0;
 
