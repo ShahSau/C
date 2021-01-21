@@ -33,9 +33,9 @@ int main()
         //storing computer's random value as computer
         int computer = generate();
 
-//checking who is the winner
+        //checking who is the winner
         winner = checkWin(player, computer);
-//couting up the number of wins for player or computer or number of tie after each round
+        //couting up the number of wins for player or computer or number of tie after each round
         if (winner == 1)
         {
             player_wins++;
@@ -49,12 +49,12 @@ int main()
             number_tie++;
         }
 
-//printing out the result of a single round
+        //printing out the result of a single round
 
         printResult(winner, computer);
     }
 
-//printing the final result of all the rounds
+    //printing the final result after all the rounds
     printf("\n.. the game ends ..\n");
     printf("Player won %i/%i times\n", player_wins, rounds);
     printf("Computer won %i/%i times\n", computer_wins, rounds);
@@ -63,7 +63,7 @@ int main()
     return 0;
 }
 
-//int ask() - asks the user's choice and returns it as a number
+//int ask() => asks the user's choice and returns it as a number
 
 int ask()
 {
@@ -75,7 +75,7 @@ int ask()
     {
         printf("(R)ock, (P)aper or (S)cissors?\n");
         scanf(" %c", &userChoiceAsChar);
-//Checking for a valid input
+        //Checking for a valid input
         if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r' || userChoiceAsChar == 'P' || userChoiceAsChar == 'p' || userChoiceAsChar == 'S' || userChoiceAsChar == 's')
         {
             break;
@@ -88,7 +88,7 @@ int ask()
 
     } while (1);
 
-    //Converting user choice into an integer
+    //Converting user's choice into an integer
     if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r')
     {
         userChoiceAsInt = 1;
@@ -103,7 +103,7 @@ int ask()
     }
     return userChoiceAsInt;
 }
-// int generate() generate computer's choice
+// int generate()=> generate computer's choice
 int generate()
 {
     int computersChoice = 0;
@@ -113,11 +113,10 @@ int generate()
 
     computersChoice = rand() % 3 + 1;
 
-
     return computersChoice;
 }
 
-// int checkwin() 
+// int checkwin() => compare between user's choice and computer's chpice
 int checkWin(int userChoiceAsInt, int computersChoice)
 {
     int wins;
@@ -136,7 +135,7 @@ int checkWin(int userChoiceAsInt, int computersChoice)
     }
     return wins;
 }
-
+//printResult() => prints computer's choice as text and prints result of individual round
 void printResult(int wins, int computersChoice)
 {
     // Printing the value of computersChoice as text to the screen
@@ -152,7 +151,7 @@ void printResult(int wins, int computersChoice)
     {
         printf("Computer choose Sissors\n");
     }
-
+    // checking for winner's in each round
     if (wins == 1)
     {
         printf("Player wins!!\n");
