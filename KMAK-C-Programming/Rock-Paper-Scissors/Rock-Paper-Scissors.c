@@ -20,6 +20,7 @@ int main()
 
     //Printing welcome messgae
     printf("Welcome to Rock-Paper-Scissors game!\n");
+    printf("Best of Luck!\n");
 
     //Asking user how many rounds the use wants to play
     printf("How many rounds you want to play? : ");
@@ -56,9 +57,10 @@ int main()
 
     //printing the final result after all the rounds
     printf("\n.. the game ends ..\n");
-    printf("Player won %i/%i times\n", player_wins, rounds);
-    printf("Computer won %i/%i times\n", computer_wins, rounds);
-    printf("Number of ties: %i\n", number_tie);
+    printf("After %i rounds, the results are: \n", rounds);
+    printf("Player won %i/%i times.\n", player_wins, rounds);
+    printf("Computer won %i/%i times.\n", computer_wins, rounds);
+    printf("Number of ties: %i.\n", number_tie);
 
     return 0;
 }
@@ -141,15 +143,15 @@ void printResult(int wins, int computersChoice)
     // Printing the value of computersChoice as text to the screen
     if (computersChoice == 1)
     {
-        printf("Computer choose Rock\n");
+        printf("Computer choose: Rock.\n");
     }
     else if (computersChoice == 2)
     {
-        printf("Computer choose Paper\n");
+        printf("Computer choose: Paper.\n");
     }
     else
     {
-        printf("Computer choose Sissors\n");
+        printf("Computer choose: Sissors.\n");
     }
     // checking for winner's in each round
     if (wins == 1)
@@ -162,6 +164,6 @@ void printResult(int wins, int computersChoice)
     }
     else
     {
-        printf("its a tie\n");
+        printf("its a tie!!\n");
     }
 }
