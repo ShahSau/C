@@ -2,12 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 //Function prototypes of all the functions
-int ask();
+char ask();
 int generate();
-int checkWin(int userChoiceAsInt, int computersChoice);
+int checkWin(char userChoiceAsChar, char computersChoiceAsChar);
 void printResult(int computerWins, int wins);
+char generateComputerChar(int computersChoice);
 
 int main()
 {
@@ -30,12 +32,12 @@ int main()
     for (int i = 0; i < rounds; i++)
     {
         //storing playes's input as player
-        int player = ask();
+        char player = ask();
         //storing computer's random value as computer
         int computer = generate();
-
+        char computer_char= generateComputerChar(computer);
         //checking who is the winner
-        winner = checkWin(player, computer);
+        winner = checkWin(player, computer_char);
         //couting up the number of wins for player or computer or number of tie after each round
         if (winner == 1)
         {
@@ -67,7 +69,7 @@ int main()
 
 //int ask() => asks the user's choice and returns it as a number
 
-int ask()
+char ask()
 {
     int userChoiceAsInt = 0;
     char userChoiceAsChar;
@@ -91,19 +93,20 @@ int ask()
     } while (1);
 
     //Converting user's choice into an integer
-    if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r')
-    {
-        userChoiceAsInt = 1;
-    }
-    else if (userChoiceAsChar == 'P' || userChoiceAsChar == 'p')
-    {
-        userChoiceAsInt = 2;
-    }
-    else
-    {
-        userChoiceAsInt = 3;
-    }
-    return userChoiceAsInt;
+   // if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r')
+    //{
+      //  userChoiceAsInt = 1;
+    //}
+    //else if (userChoiceAsChar == 'P' || userChoiceAsChar == 'p')
+    //{
+      //  userChoiceAsInt = 2;
+    //}
+    //else
+    //{
+     //   userChoiceAsInt = 3;
+   // }
+   
+    return toupper(userChoiceAsChar);
 }
 // int generate()=> generate computer's choice
 int generate()
@@ -117,24 +120,66 @@ int generate()
 
     return computersChoice;
 }
-
-// int checkwin() => compare between user's choice and computer's choice
-int checkWin(int userChoiceAsInt, int computersChoice)
+char computersChoiceAsChar;
+char generateComputerChar(int computersChoice)
 {
-    int wins;
-
-    if (userChoiceAsInt > computersChoice)
+    if (computersChoice == 1)
     {
-        wins = 1;
+        computersChoiceAsChar = 'R';
     }
-    else if (userChoiceAsInt == computersChoice)
+    else if (computersChoice == 2)
     {
-        wins = 0;
+        computersChoiceAsChar = 'P';
     }
     else
     {
-        wins = -1;
+        computersChoiceAsChar = 'S';
     }
+    return computersChoiceAsChar;
+}
+
+// int checkwin() => compare between user's choice and computer's choice
+int checkWin(char userChoiceAsChar, char computersChoiceAsChar)
+{
+    int wins;
+    if (userChoiceAsChar == 'R' && computersChoiceAsChar == 'R')
+    {
+         wins = 0;
+    }
+    else if (userChoiceAsChar == 'R' && computersChoiceAsChar == 'S')
+    {
+         wins = 1;
+    }
+     else if (userChoiceAsChar == 'R' && computersChoiceAsChar == 'P')
+    {
+         wins = -1;
+    }
+    else if (userChoiceAsChar == 'S' && computersChoiceAsChar == 'R')
+    {
+         wins = -1;
+    }
+    else if (userChoiceAsChar == 'S' && computersChoiceAsChar == 'S')
+    {
+         wins = 0;
+    }
+     else if (userChoiceAsChar == 'S' && computersChoiceAsChar == 'P')
+    {
+         wins = 1;
+    }
+
+    else if (userChoiceAsChar == 'P' && computersChoiceAsChar == 'R')
+    {
+         wins = 1;
+    }
+    else if (userChoiceAsChar == 'P' && computersChoiceAsChar == 'S')
+    {
+         wins = -1;
+    }
+    else if (userChoiceAsChar == 'P' && computersChoiceAsChar == 'P')
+    {
+         wins = 0;
+    }
+    
     return wins;
 }
 //printResult() => prints computer's choice as text and prints result of individual round
@@ -162,7 +207,7 @@ void printResult(int wins, int computersChoice)
     {
         printf("Computer wins!!\n");
     }
-    else
+    else if(wins == 0)
     {
         printf("its a tie!!\n");
     }
