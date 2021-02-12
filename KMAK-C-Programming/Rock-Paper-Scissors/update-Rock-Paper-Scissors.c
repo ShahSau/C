@@ -79,6 +79,7 @@ char ask()
     do
     {
         printf("(R)ock, (P)aper or (S)cissors?\n");
+        printf("You choose: ");
         scanf(" %c", &userChoiceAsChar);
         //Checking for a valid input
         if (userChoiceAsChar == 'R' || userChoiceAsChar == 'r' || userChoiceAsChar == 'P' || userChoiceAsChar == 'p' || userChoiceAsChar == 'S' || userChoiceAsChar == 's')
