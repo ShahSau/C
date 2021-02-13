@@ -5,15 +5,13 @@
  
 int main()
 {
-   char name1[10]= "Tim";
-   char name2[10]= "Bill";
-   if(strcmp(name1, name2) < 0)
-   {
-      printf("A");
-   }else if(strcmp(name1, name2) > 0){
-      printf("B");
-   }else{
-      printf("C");
-   }
+   char name[50];
+   int num;
+   printf("enter:");
+   gets(name);
+   //printf("%s", name);
+   printf("num: ");
+   scanf("%i", num);
+   printf("%s", name);
    return 0;
 }
