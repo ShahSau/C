@@ -106,15 +106,15 @@ int main()
 struct FRIEND askFriendInfo()
 {
     struct FRIEND newFriend;
-    printf("enter friend\n");
-    printf("name: ");
+    //printf("enter friend");
+    printf("New friend: ");
     gets(newFriend.name);
-    printf("phonr:");
+    printf("phon2:");
    // scanf("%s", &newFriend.phone);
     gets(newFriend.phone);
-    printf("KK:");
-    char buf[30]; 
-    gets(newFriend.name); 
+    printf("name:");
+   // char buf[30]; 
+    //gets(newFriend.name); 
     
     return newFriend;
 }
