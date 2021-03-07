@@ -104,23 +104,22 @@ int main()
 
 struct FRIEND askFriendInfo()
 {
-    struct FRIEND newFriend;
+  struct FRIEND newFriend;
 	char k[50];
 	char k1[50];
 	char k2[50];
-    printf("enter friend\n");
-
-    printf("first name: ");
-    scanf("%s", &k);
+  printf("enter friend\n");
+  printf("first name: ");
+  scanf("%s", &k);
 	printf("second name: ");
-	scanf("%s", &k1);
+	scanf("%s",&k1);
 	strcpy(k2,strcat(k," "));
 	strcpy(newFriend.name, strcat(k2,k1));
-	printf("phonr:");
-    scanf(" %c", &newFriend.phone);
+	printf("phone:");
+  scanf("%s", &newFriend.phone);
 
     
-    return newFriend;
+  return newFriend;
 }
 
 
